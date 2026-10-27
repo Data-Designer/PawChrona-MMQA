@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c35">
+  <meta name="description" content="PawChrona-MMQA: a bilingual multimodal question-answering research resource for companion-animal health and behavior. Explore its structure, provenance and release status.">
+  <meta property="og:title" content="PawChrona-MMQA · Questions with their evidence">
+  <meta property="og:description" content="49,247 local candidate questions. English and Chinese. Images, audio, video and text. A provenance-first companion-animal research resource.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://data-designer.github.io/PawChrona-MMQA/">
+  <meta property="og:image" content="https://data-designer.github.io/PawChrona-MMQA/assets/dataset-social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://data-designer.github.io/PawChrona-MMQA/">
+  <link rel="icon" href="assets/dataset-mark.svg" type="image/svg+xml">
+  <title>PawChrona-MMQA | Multimodal companion-animal research</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="release-data.js"></script>
+  <script defer src="site.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-en="Skip to content" data-zh="跳到正文">Skip to content</a>
+  <header class="header">
+    <a class="brand" href="#top" aria-label="PawChrona-MMQA home"><img src="assets/dataset-mark.svg" alt="" width="40" height="40"><span>PawChrona-MMQA<span class="brand-sub" data-en="Multimodal QA dataset" data-zh="多模态问答数据集">Multimodal QA dataset</span></span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="navigation" data-en="Menu" data-zh="目录">Menu</button>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#overview" data-en="Overview" data-zh="概览">Overview</a>
+      <a href="#explorer" data-en="Explorer" data-zh="结构浏览">Explorer</a>
+      <a href="#provenance" data-en="Provenance" data-zh="出处">Provenance</a>
+      <a href="#access" data-en="Access" data-zh="访问">Access</a>
+    </nav>
+    <button id="language" class="language" aria-label="Switch to Chinese">中文</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="dataset-card">
+        <div class="modality-stripe" aria-label="Image questions 79.92%, audio/video questions 18.78%, text questions 1.30%"><span></span><span></span><span></span></div>
+        <div class="card-body">
+          <h1>PawChrona-<wbr>MMQA</h1>
+          <p class="hero-statement" data-en="Questions with their evidence." data-zh="让每个问题，都有据可循。">Questions with their evidence.</p>
+          <p class="hero-description" data-en="A bilingual multimodal question-answering resource for companion-animal health and behavior." data-zh="面向伴侣动物健康与行为研究的中英双语多模态问答资源。">A bilingual multimodal question-answering resource for companion-animal health and behavior.</p>
+          <a class="button" href="#explorer" data-en="Explore the structure" data-zh="浏览数据结构">Explore the structure <span aria-hidden="true">↗</span></a>
+          <p class="release-state" data-en="Local research candidate. Public HF release in preparation." data-zh="本地研究候选版本，公开 HF 发布准备中。">Local research candidate. Public HF release in preparation.</p>
+          <div class="hero-facts"><span><strong>49,247</strong><small data-en="parent questions" data-zh="独立父题">parent questions</small></span><span><strong>EN + 中文</strong><small data-en="paired language fields" data-zh="成对双语字段">paired language fields</small></span></div>
+        </div>
+      </div>
+      <figure class="research-figure">
+        <figcaption><p class="diagram-title" data-en="One parent. Paired views." data-zh="一道父题，双语视图。">One parent. Paired views.</p><p class="diagram-subtitle" data-en="Media, questions and provenance stay connected." data-zh="媒体、问题与来源保持关联。">Media, questions and provenance stay connected.</p></figcaption>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 570" role="img" aria-labelledby="diagram-title diagram-description" class="record-diagram">
+<title id="diagram-title" data-en="Bilingual multimodal record structure" data-zh="双语多模态记录结构">Bilingual multimodal record structure</title>
+<desc id="diagram-description" data-en="Image, audio/video and text configurations link to a parent qa_id, paired language fields, sources and review metadata." data-zh="图像、音视频与文本配置关联到父题qa_id，保留双语字段、来源和审核元数据。">Image, audio/video and text configurations link to a parent qa_id, paired language fields, sources and review metadata.</desc>
+<g class="diagram-connectors" fill="none" stroke="currentColor" stroke-width="6"><path d="M100 115v42q0 35 60 35h40q40 0 40 37"/><path d="M300 115v104"/><path d="M500 115v42q0 35-60 35h-40q-40 0-40 37"/><path d="M260 350q0 42-90 42v38"/><path d="M340 350q0 42 90 42v38"/></g>
+<g class="diagram-inputs" text-anchor="middle"><text x="100" y="65" class="diagram-number">39,360</text><text x="300" y="65" class="diagram-number">9,247</text><text x="500" y="65" class="diagram-number">640</text><text x="100" y="105" data-en="Image" data-zh="图像">Image</text><text x="300" y="105" data-en="Audio/video" data-zh="音视频">Audio/video</text><text x="500" y="105" data-en="Text" data-zh="文本">Text</text></g>
+<g class="question-node"><rect x="190" y="214" width="220" height="138" rx="14"/><text x="300" y="276" text-anchor="middle" class="diagram-key">qa_id</text><text x="300" y="319" text-anchor="middle" data-en="Parent QA" data-zh="独立父题">Parent QA</text></g>
+<g class="language-nodes" text-anchor="middle"><rect x="40" y="430" width="230" height="83" rx="10"/><rect x="330" y="430" width="230" height="83" rx="10"/><text x="155" y="463">English</text><text x="445" y="463">中文</text><text x="155" y="495" class="diagram-field">question_en</text><text x="445" y="495" class="diagram-field">question_zh</text></g>
+<text x="300" y="557" text-anchor="middle" class="diagram-evidence" data-en="source_ids + media_sha256 + review_holds" data-zh="来源引用 + 媒体哈希 + 审核状态">source_ids + media_sha256 + review_holds</text>
+</svg>
+        <div class="diagram-caption"><p data-en="Field-level illustration, not a released QA example." data-zh="字段结构示意，不是已发布的问答样本。">Field-level illustration, not a released QA example.</p><button id="pause-visual" aria-pressed="false" data-en="Pause diagram" data-zh="暂停动效">Pause diagram</button></div>
+      </figure>
+    </section>
+
+    <section class="overview section" id="overview" aria-labelledby="overview-heading">
+      <div class="section-opening"><h2 id="overview-heading" data-en="Many signals. Shared context." data-zh="多种模态，同一语境。">Many signals.<br>Shared context.</h2><p data-en="Images, sound, motion and text are organized around questions, with species, source and review state kept alongside each one." data-zh="围绕问题组织图像、声音、动作与文本，同时保留物种、来源和审核状态。">Images, sound, motion and text are organized around questions, with species, source and review state kept alongside each one.</p></div>
+      <div class="facts-row"><div><strong>39,360</strong><p data-en="Image-linked questions" data-zh="图像关联题">Image-linked questions</p></div><div><strong>9,247</strong><p data-en="Audio/video-linked questions" data-zh="音视频关联题">Audio/video-linked questions</p></div><div><strong>640</strong><p data-en="Text-only questions" data-zh="纯文本题">Text-only questions</p></div></div>
+      <p class="count-note" data-en="The total counts parent questions once. English/Chinese pairs and alternate question views do not increase it." data-zh="总数按父题去重计数；中英文成对字段与备用题型视图不重复增加题量。">The total counts parent questions once. English/Chinese pairs and alternate question views do not increase it.</p>
+    </section>
+
+    <section class="explorer-section" id="explorer" aria-labelledby="explorer-heading">
+      <div class="section explorer-intro"><h2 id="explorer-heading" data-en="Open the dataset card." data-zh="打开这张数据卡。">Open the dataset card.</h2><p data-en="Browse the real configurations and field contract. This explorer does not expose unreviewed source media or patient records." data-zh="查看真实配置与字段约定。此浏览器不公开未审核源媒体或个体病历。">Browse the real configurations and field contract. This explorer does not expose unreviewed source media or patient records.</p></div>
+      <div class="explorer" data-ui="dataset-structure-browser">
+        <div class="explorer-tabs" role="tablist" aria-label="Dataset configurations"><button id="tab-image" role="tab" aria-controls="configuration-panel" aria-selected="true" data-config="image_vqa" data-en="Images" data-zh="图像">Images</button><button id="tab-av" role="tab" aria-controls="configuration-panel" aria-selected="false" tabindex="-1" data-config="audio_video_qa" data-en="Audio & video" data-zh="音视频">Audio & video</button><button id="tab-text" role="tab" aria-controls="configuration-panel" aria-selected="false" tabindex="-1" data-config="text_qa" data-en="Text" data-zh="文本">Text</button></div>
+        <div id="configuration-panel" role="tabpanel" aria-labelledby="tab-image" tabindex="0">
+          <div class="configuration-copy"><h3 id="configuration-title">Image-linked QA</h3><p id="configuration-description">Questions linked to images, including findings, imaging quality and source-reported labels.</p><p class="configuration-count"><strong id="configuration-count">39,360</strong><span data-en="parent questions" data-zh="道父题">parent questions</span></p><label class="species-filter" for="species"><span data-en="Species view" data-zh="物种视图">Species view</span><select id="species"><option value="all" data-en="All species" data-zh="全部物种">All species</option><option value="cat" data-en="Cats" data-zh="猫">Cats</option><option value="dog" data-en="Dogs" data-zh="狗">Dogs</option><option value="mixed" data-en="Mixed / unknown" data-zh="混合 / 未知">Mixed / unknown</option></select></label><p id="species-description" class="species-description" aria-live="polite">Overall candidate: 13,775 cat, 34,425 dog, 30 mixed and 1,017 unknown-species questions.</p></div>
+<div class="field-contract"><div class="field-heading"><strong data-en="Field contract" data-zh="字段约定">Field contract</strong><button id="copy-schema" data-en="Copy schema" data-zh="复制结构">Copy schema</button></div><dl id="field-list"><div><dt>qa_id</dt><dd data-en="Stable parent-question identifier" data-zh="稳定的父题标识">Stable parent-question identifier</dd></div><div><dt>question_en / question_zh</dt><dd data-en="Paired English and Chinese questions" data-zh="成对的中英文问题">Paired English and Chinese questions</dd></div><div><dt>image</dt><dd data-en="Image bytes embedded in Parquet" data-zh="内嵌于 Parquet 的图像字节">Image bytes embedded in Parquet</dd></div><div><dt>source / review fields</dt><dd data-en="Provenance and review state" data-zh="来源与审核状态">Provenance and review state</dd></div></dl><p class="field-note" data-en="Schema preview, not an exported QA example. References and answer fields stay out of model inputs." data-zh="此处为结构预览，不是导出的问答样本。来源与参考答案字段不进入模型输入。">Schema preview, not an exported QA example. References and answer fields stay out of model inputs.</p></div>
+        </div>
+      </div>
+      <noscript><p class="noscript-note">Three configurations: image_vqa (39,360), audio_video_qa (9,247), text_qa (640). Parent questions have paired English and Chinese fields. All are unreviewed debug_only candidates.</p></noscript>
+    </section>
+
+    <section class="coverage section" id="coverage" aria-labelledby="coverage-heading">
+      <div class="coverage-total"><h2 id="coverage-heading" data-en="Five research lenses." data-zh="五种研究视角。">Five research lenses.</h2><p data-en="The broad taxonomy groups the candidate pool without turning source labels into clinical ground truth." data-zh="以宽口径任务体系组织候选题，不把来源标签等同于临床真值。">The broad taxonomy groups the candidate pool without turning source labels into clinical ground truth.</p><div class="giant-total">49,247</div><p data-en="Unique parent questions in the local candidate." data-zh="本地候选版本中的独立父题。">Unique parent questions in the local candidate.</p></div>
+      <div class="receipt"><div class="category-row"><span data-en="Behavior & expression" data-zh="行为与表达">Behavior & expression</span><strong>20,013</strong><div style="--amount:40.64%"></div></div><div class="category-row"><span data-en="Disease & veterinary knowledge" data-zh="疾病与兽医知识">Disease & veterinary knowledge</span><strong>15,046</strong><div style="--amount:30.55%"></div></div><div class="category-row"><span data-en="Image interpretation" data-zh="图像解读">Image interpretation</span><strong>10,323</strong><div style="--amount:20.96%"></div></div><div class="category-row"><span data-en="Imaging basics & quality" data-zh="成像基础与质量">Imaging basics & quality</span><strong>3,013</strong><div style="--amount:6.12%"></div></div><div class="category-row"><span data-en="Pet-health consultation" data-zh="宠物健康咨询">Pet-health consultation</span><strong>852</strong><div style="--amount:1.73%"></div></div><p class="receipt-total"><span data-en="Total" data-zh="合计">Total</span><strong>49,247</strong></p><p class="receipt-note" data-en="Taxonomy snapshot: 27 October 2026. Counts describe scope, not validated model performance." data-zh="任务分类快照：2026年10月27日。数量描述数据范围，不代表已验证的模型表现。">Taxonomy snapshot: 27 October 2026. Counts describe scope, not validated model performance.</p></div>
+    </section>
+
+    <section class="provenance section" id="provenance" aria-labelledby="provenance-heading">
+      <div class="provenance-copy"><h2 id="provenance-heading" data-en="Keep the evidence attached." data-zh="让证据始终随行。">Keep the evidence attached.</h2><p data-en="Every candidate retains its source linkage. Original media, authored questions, translated views and derived annotations remain distinct." data-zh="每道候选题保留来源关联；原始媒体、自编问题、翻译视图与衍生标注分别记录。">Every candidate retains its source linkage. Original media, authored questions, translated views and derived annotations remain distinct.</p><a class="plain-link" href="DATASET.md" data-en="Read the dataset overview" data-zh="阅读数据集说明">Read the dataset overview</a></div>
+      <div class="provenance-slip"><h3 data-en="A record travels with" data-zh="每条记录保留">A record travels with</h3><ul><li><strong data-en="Source" data-zh="出处">Source</strong><span data-en="Original reference and media binding" data-zh="原始引用与媒体关联">Original reference and media binding</span></li><li><strong data-en="Language" data-zh="语言">Language</strong><span data-en="English/Chinese fields on one parent" data-zh="同一父题的中英文字段">English/Chinese fields on one parent</span></li><li><strong data-en="Context" data-zh="语境">Context</strong><span data-en="Species and source-supported breed" data-zh="物种与有来源依据的品种">Species and source-supported breed</span></li><li><strong data-en="Review" data-zh="审核">Review</strong><span data-en="Explicit quality, privacy and clinical state" data-zh="显式质量、隐私与临床状态">Explicit quality, privacy and clinical state</span></li></ul><p data-en="Traceability is a research property. It is not clinical approval." data-zh="可追溯是一种研究属性，不等于临床放行。">Traceability is a research property. It is not clinical approval.</p></div>
+    </section>
+
+
+    <section class="questions section" aria-labelledby="questions-heading"><h2 id="questions-heading" data-en="Before you use it." data-zh="使用前，先了解。">Before you use it.</h2><div class="question-stack"><details open><summary data-en="Is the dataset public on Hugging Face?" data-zh="数据集已在 Hugging Face 公开了吗？">Is the dataset public on Hugging Face?</summary><p data-en="Not yet. The native Hugging Face package is being prepared locally. This website publishes scope and structure only; a real Hub link will be added after a verified upload and release decision." data-zh="尚未。HF 原生包正在本地准备。本网站仅公开范围与结构；完成真实上传与发布确认后，才会添加实际 Hub 地址。">Not yet. The native Hugging Face package is being prepared locally. This website publishes scope and structure only; a real Hub link will be added after a verified upload and release decision.</p></details><details><summary data-en="Is this a clinically validated benchmark?" data-zh="这是经过临床验证的基准吗？">Is this a clinically validated benchmark?</summary><p data-en="No. All items remain unreviewed debug_only candidates. Veterinary review, independent language/privacy review and formal multimodal-model evaluation are pending. No leaderboard or performance claim is published." data-zh="不是。全部条目仍为未审核 debug_only 候选；兽医审核、独立双语/隐私核对与正式多模态模型评估仍待完成。当前不发布排行榜或性能结论。">No. All items remain unreviewed debug_only candidates. Veterinary review, independent language/privacy review and formal multimodal-model evaluation are pending. No leaderboard or performance claim is published.</p></details><details><summary data-en="Who owns the source material?" data-zh="原始素材的权利归谁？">Who owns the source material?</summary><p data-en="Source materials keep their original rights. Authored organization and annotations are documented separately. The legal rights holder and original-component licences are not finalized; this page asserts no exclusive ownership of the reused corpus or completed IP registration." data-zh="来源素材保留其原权利；自编组织与标注单独记录。法律权利人与自有组件许可尚未定稿，本页不主张全部复用语料的独占权，也不表示已完成知识产权登记。">Source materials keep their original rights. Authored organization and annotations are documented separately. The legal rights holder and original-component licences are not finalized; this page asserts no exclusive ownership of the reused corpus or completed IP registration.</p></details><details><summary data-en="Can I use it for diagnosis or treatment?" data-zh="可以直接用于诊断或治疗吗？">Can I use it for diagnosis or treatment?</summary><p data-en="The current candidate is a research preparation artifact. It is not an approved clinical, training or test release and must not guide an individual animal's diagnosis, treatment or medication." data-zh="当前候选是研究准备产物，不是获批的临床、训练或测试发布版本，不用于指导个体动物的诊断、治疗或用药。">The current candidate is a research preparation artifact. It is not an approved clinical, training or test release and must not guide an individual animal's diagnosis, treatment or medication.</p></details></div></section>
+
+    <section class="access-section" id="access" aria-labelledby="access-heading"><div class="access-intro"><h2 id="access-heading" data-en="Follow the research." data-zh="关注研究进展。">Follow the research.</h2><p data-en="Start with the public project documentation. Dataset access will follow a separate review and publication process." data-zh="先从公开项目说明开始。数据访问另行经过审核与发布流程。">Start with the public project documentation. Dataset access will follow a separate review and publication process.</p></div><div class="reply-card"><h3 data-en="PawChrona-MMQA" data-zh="PawChrona-MMQA">PawChrona-MMQA</h3><p data-en="Project homepage and documentation. No raw dataset is distributed by this repository." data-zh="项目主页与说明仓库；本仓库不分发原始数据。">Project homepage and documentation. No raw dataset is distributed by this repository.</p><a class="button" href="https://github.com/Data-Designer/PawChrona-MMQA" data-en="View on GitHub" data-zh="查看 GitHub">View on GitHub</a><button id="citation-open" class="plain-link" data-en="Citation & release status" data-zh="引用与发布状态">Citation & release status</button></div></section>
+  </main>
+
+  <footer class="footer"><div class="footer-card"><div><a class="footer-name" href="#top">PawChrona-MMQA</a><p data-en="A shared research language for companion-animal observation." data-zh="为伴侣动物观察，建立共同的研究语言。">A shared research language for companion-animal observation.</p></div><nav aria-label="Related resources"><a href="https://github.com/Data-Designer/PawChrona-MMQA" data-en="Website source" data-zh="网站源码">Website source</a><a href="DATASET.md" data-en="Dataset overview" data-zh="数据集说明">Dataset overview</a><a href="https://github.com/Data-Designer/PawChrona-MMQA/issues/new" data-en="Research enquiries" data-zh="研究交流">Research enquiries</a></nav><p class="snapshot" data-en="Research snapshot: 27 October 2026. Candidate version 2026.10.27-debug.1." data-zh="研究快照：2026年10月27日。候选版本 2026.10.27-debug.1。">Research snapshot: 27 October 2026. Candidate version 2026.10.27-debug.1.</p></div></footer>
+
+  <dialog id="citation-dialog" aria-labelledby="citation-title"><button class="dialog-close" id="citation-close" aria-label="Close dialog">×</button><h2 id="citation-title" data-en="A release in preparation." data-zh="一个准备中的版本。">A release in preparation.</h2><p data-en="There is no published dataset citation or DOI yet. This is provisional project metadata, not a claim of a published deposit." data-zh="目前没有正式数据集引用或 DOI。以下为临时项目信息，不代表已发表或已存证的数据发布。">There is no published dataset citation or DOI yet. This is provisional project metadata, not a claim of a published deposit.</p><pre id="citation-code">{
+  "title": "PawChrona-MMQA",
+  "version": "2026.10.27-debug.1",
+  "status": "local_unreviewed_candidate",
+  "creators": [],
+  "identifier": null
+}</pre><button class="button" id="copy-citation" data-en="Copy project metadata" data-zh="复制项目信息">Copy project metadata</button><p id="copy-status" role="status"></p></dialog>
+  <p class="toast" id="toast" role="status" hidden></p>
+</body>
+</html>

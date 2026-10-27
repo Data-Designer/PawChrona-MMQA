@@ -1,0 +1,10 @@
+.DS_Store
+._*
+.taste-skill/
+.cache/
+.tmp/
+node_modules/
+qa/
+*.log
+.openai/
+dist/
