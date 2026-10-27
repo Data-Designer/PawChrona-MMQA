@@ -35,7 +35,7 @@ function setLanguage(next){
   try{localStorage.setItem('mmqa-language',lang);}catch{}
 }
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
-function metadata(){return {title:release.name,version:release.version,status:release.status,creators:[],identifier:null,repository:'https://github.com/Data-Designer/PawChrona-MMQA',repository_scope:'project_homepage_only',dataset_publicly_released:false};}
+function metadata(){return {title:release.name,version:release.version,status:release.status,creators:[],identifier:null,repository:release.hfUrl,repository_scope:'private_research_candidate',dataset_publicly_released:false};}
 function openMetadataDialog(kind,opener){
   lastDialogOpener=opener;$('#citation-dialog').dataset.kind=kind;$('#citation-title').textContent=kind==='schema'?(lang==='en'?'Configuration schema':'配置结构'):(lang==='en'?'A release in preparation.':'一个准备中的版本。');
   $('#citation-dialog').querySelector(':scope>p').textContent=kind==='schema'?(lang==='en'?'Select and copy this schema. It contains no dataset examples.':'可选择并复制以下结构，不含数据集样本。'):(lang==='en'?'No published dataset citation or DOI exists yet. This is provisional project metadata.':'目前没有正式数据集引用或 DOI，以下为临时项目信息。');
@@ -45,10 +45,10 @@ async function copy(value,kind,opener){
   try{await navigator.clipboard.writeText(value);toast(lang==='en'?'Copied to clipboard':'已复制到剪贴板');return true;}
   catch{if(!$('#citation-dialog').open)openMetadataDialog(kind,opener);$('#copy-status').textContent=lang==='en'?'Clipboard unavailable. Select the text above and copy it manually.':'剪贴板不可用，请选择上方文本手动复制。';return false;}
 }
-function renderVisualControl(){const b=$('#pause-visual');b.textContent=visualPaused?(lang==='en'?'Resume diagram':'继续动效'):(lang==='en'?'Pause diagram':'暂停动效');b.setAttribute('aria-pressed',String(visualPaused));}
+function renderVisualControl(){const b=$('#pause-visual');b.textContent=visualPaused?(lang==='en'?'Resume background':'继续背景动效'):(lang==='en'?'Pause background':'暂停背景动效');b.setAttribute('aria-pressed',String(visualPaused));}
 const calm=matchMedia('(prefers-reduced-motion: reduce)'),smallScreen=matchMedia('(max-width:650px)');
 function syncVisual(){
-  $('.record-diagram').classList.toggle('is-paused',visualPaused||document.hidden||calm.matches);
+  $('.study-photo').classList.toggle('is-paused',visualPaused||document.hidden||calm.matches||smallScreen.matches);
 }
 $('#language').addEventListener('click',()=>setLanguage(lang==='en'?'zh':'en'));
 all('[data-config]').forEach(button=>button.addEventListener('click',()=>{config=button.dataset.config;renderExplorer();}));
@@ -67,6 +67,7 @@ $('#citation-dialog').addEventListener('click',event=>{if(event.target===$('#cit
 $('.menu-button').addEventListener('click',()=>{const open=$('.menu-button').getAttribute('aria-expanded')!=='true';$('.menu-button').setAttribute('aria-expanded',open);$('#navigation').classList.toggle('is-open',open);});
 function closeMenu(){const open=$('.menu-button').getAttribute('aria-expanded')==='true';$('.menu-button').setAttribute('aria-expanded','false');$('#navigation').classList.remove('is-open');return open;}
 $('#navigation').addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
+document.querySelectorAll('a[href="#explorer"]').forEach(link=>link.addEventListener('click',()=>{$('.technical-details').open=true;}));
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&closeMenu())$('.menu-button').focus();});
 $('#pause-visual').addEventListener('click',()=>{visualPaused=!visualPaused;renderVisualControl();syncVisual();});
 document.addEventListener('visibilitychange',syncVisual);calm.addEventListener('change',syncVisual);smallScreen.addEventListener('change',()=>{closeMenu();syncVisual();});

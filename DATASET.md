@@ -15,13 +15,15 @@ Snapshot: 2026-10-27. Candidate version: `2026.10.27-debug.1`.
 
 The total counts parents once, not each language or alternate question view. / 总数按父题去重，不把语言或备用题型重复计数。
 
-| Broad category / 大类 | Questions / 题量 |
-| --- | ---: |
-| Behavior and expression / 行为与表达 | 20,013 |
-| Disease and veterinary knowledge / 疾病与兽医知识 | 15,046 |
-| Image interpretation / 图像解读 | 10,323 |
-| Imaging basics and quality / 成像基础与质量 | 3,013 |
-| Pet-health consultation / 宠物健康咨询 | 852 |
+| Broad category / 大类 | Questions / 题量 | Representative QA excerpt / 代表性问答摘要 |
+| --- | ---: | --- |
+| Image interpretation / 影像观察与判读 | 10,323 | “这张图像显示哪些发现？”→“中性粒细胞；巨噬细胞。” |
+| Disease and veterinary knowledge / 疾病类别与兽医知识 | 15,046 | “根据来源标注，属于哪一皮肤病类别？”→“真菌感染。” |
+| Pet-health consultation / 宠物健康咨询 | 852 | “小狗掉了一颗牙……需要去医院吗？”→“需要确认恒牙是否受损。” |
+| Behavior and expression / 行为与表情 | 20,013 | “来源将图像标为哪一表情类别？”→“高兴（来源表情类别）。” |
+| Imaging basics and quality / 成像基础与质量 | 3,013 | “哪一描述与来源质量标注一致？”→“来源质量状态：曝光不足。” |
+
+These short excerpts were supplied by the dataset owner for homepage display. Source-reported expression categories are not independently verified emotional states. / 上述摘要由数据集负责人提供用于主页展示；来源的表情类别不等同于独立验证的情绪状态。
 
 Species: 34,425 dog, 13,775 cat, 30 mixed cat/dog and 1,017 unknown. These are overall counts, not a modality-by-species cross-tab. Breeds require explicit source evidence and may be missing. / 物种全池数量：狗34,425、猫13,775、混合30、未知1,017；不是按模态细分的交叉计数。品种只按来源证据标记，允许缺失。
 
@@ -35,7 +37,7 @@ Image/audio/video bytes are planned in native HF Parquet features. English and C
 
 ## Availability and review / 可用性与审核
 
-This is a local unreviewed candidate, not a published dataset deposit. Native packaging is in preparation. The project has no verified public HF repository or DOI yet. This homepage repository distributes no raw dataset, media, source questions or patient records. / 当前是本地未审核候选，HF原生打包准备中；尚无确认的公开HF仓库或DOI。本主页仓库不分发原始数据、源媒体、源问题或个体病历。
+The candidate is uploaded to the private Hugging Face repository [ChuangZhao/PawChrona-MMQA](https://huggingface.co/datasets/ChuangZhao/PawChrona-MMQA), verified on 27 October 2026. Access requires an authorized account; public-release and clinical approvals remain pending. No DOI is assigned. This homepage distributes aggregate facts and owner-supplied representative QA excerpts, not raw media or patient records. / 候选版本已上传至HF私有仓库，2026年10月27日已核实。访问需获授权账户，公开发布和临床放行仍未完成，尚无DOI。本主页展示汇总与负责人提供的代表性问答摘要，不分发原始媒体或个体病历。
 
 All records remain `debug_only`. Actual veterinary reviews: 0. Clinical, independent privacy/language review and formal multimodal-model evaluation remain pending. No approved train/test release, clinical accuracy claim or leaderboard is provided. / 全部保持`debug_only`，真实兽医审核为0；临床、独立隐私/双语审核和正式多模态评估仍待完成，不提供获批训练/测试发布、临床准确率或排行榜。
 
