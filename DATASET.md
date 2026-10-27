@@ -37,7 +37,7 @@ Image/audio/video bytes are planned in native HF Parquet features. English and C
 
 ## Availability and review / 可用性与审核
 
-The candidate is uploaded to the private Hugging Face repository [ChuangZhao/PawChrona-MMQA](https://huggingface.co/datasets/ChuangZhao/PawChrona-MMQA), verified on 27 October 2026. Access requires an authorized account; public-release and clinical approvals remain pending. No DOI is assigned. This homepage distributes aggregate facts and owner-supplied representative QA excerpts, not raw media or patient records. / 候选版本已上传至HF私有仓库，2026年10月27日已核实。访问需获授权账户，公开发布和临床放行仍未完成，尚无DOI。本主页展示汇总与负责人提供的代表性问答摘要，不分发原始媒体或个体病历。
+The candidate is hosted at [PawChrona/PawChrona-MMQA](https://huggingface.co/datasets/PawChrona/PawChrona-MMQA). Verified on 27 October 2026: the repository page is public, while dataset access requires a request and manual approval (`gated: manual`). Repository visibility does not establish clinical or formal train/test approval. No DOI is assigned. This homepage distributes aggregate facts and owner-supplied representative QA excerpts, not raw media or patient records. / 候选版本位于上述HF组织仓库。2026年10月27日已核实：仓库页面可公开查看，数据访问需提交申请并经人工审批。仓库可见不代表已获临床或正式训练/测试放行，尚无DOI。本主页展示汇总与负责人提供的代表性问答摘要，不分发原始媒体或个体病历。
 
 All records remain `debug_only`. Actual veterinary reviews: 0. Clinical, independent privacy/language review and formal multimodal-model evaluation remain pending. No approved train/test release, clinical accuracy claim or leaderboard is provided. / 全部保持`debug_only`，真实兽医审核为0；临床、独立隐私/双语审核和正式多模态评估仍待完成，不提供获批训练/测试发布、临床准确率或排行榜。
 

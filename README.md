@@ -3,7 +3,7 @@
 Static, bilingual research homepage, hosted by GitHub Pages. The repository contains website code, aggregate dataset facts, owner-supplied abbreviated QA examples, dataset-specific graphics and a separately credited illustrative photograph. No raw research dataset, model, media shard, token or private path is uploaded. / GitHub Pages静态双语研究主页，包含网站代码、汇总、负责人提供的简略问答、数据集专用图形与独立署名的场景照片，不含原始研究数据、模型、分片、密钥或私有路径。
 
 - Homepage: https://data-designer.github.io/PawChrona-MMQA/
-- Dataset: https://huggingface.co/datasets/ChuangZhao/PawChrona-MMQA (private candidate / 私有候选)
+- Dataset: https://huggingface.co/datasets/PawChrona/PawChrona-MMQA (manual-gated candidate / 需人工审批的候选)
 - [Dataset overview / 数据说明](DATASET.md)
 
 ## Preview / 预览
@@ -18,7 +18,9 @@ Open `http://127.0.0.1:4186/`. No installation or build is needed; asset paths a
 
 `release-data.js` is the public aggregate snapshot. Synchronize visible totals, configuration/category/species fields and `DATASET.md` when the source receipts change. A count is a parent-question count, not a language-row or media count. The source receipts are named without machine-local paths. / 同步汇总快照、页面数字与说明；父题不按语言或媒体重复计数，回执不公开本机路径。
 
-The linked HF repository has been verified as a private, unreviewed candidate. Keep access permissions, public-release readiness and clinical approval separate. Do not change review flags based on packaging or website checks. / 已核实HF仓库为私有、未审核候选；访问权限、公开发布条件与临床放行分别管理，网页检查不提升审核状态。
+The linked HF repository page is public, while dataset access uses manual approval (`gated: manual`), verified through its metadata API on 27 October 2026. Keep repository visibility, research-release readiness and clinical approval separate. Do not change review flags based on packaging or website checks. / 2026年10月27日通过HF元数据API核实：仓库页面可公开查看，数据访问需人工审批；仓库可见性、研究发布条件与临床放行分别管理，网页检查不提升审核状态。
+
+Visitor dataset actions point to Hugging Face, not the GitHub source repository. The GitHub Pages canonical address remains the homepage hosting location. / 访客的数据集入口均指向HF，不提供GitHub源码仓库入口；GitHub Pages规范地址仍作为本站托管地址保留。
 
 Deploy the `main` branch root using GitHub Pages. `.nojekyll` keeps the site buildless. / GitHub Pages部署main分支根目录；`.nojekyll`免构建。
 

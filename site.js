@@ -35,7 +35,7 @@ function setLanguage(next){
   try{localStorage.setItem('mmqa-language',lang);}catch{}
 }
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
-function metadata(){return {title:release.name,version:release.version,status:release.status,creators:[],identifier:null,repository:release.hfUrl,repository_scope:'private_research_candidate',dataset_publicly_released:false};}
+function metadata(){return {title:release.name,version:release.version,status:release.status,creators:[],identifier:null,repository:release.hfUrl,repository_scope:'gated_research_candidate',repository_access:release.hfAccessStatus,dataset_publicly_released:false};}
 function openMetadataDialog(kind,opener){
   lastDialogOpener=opener;$('#citation-dialog').dataset.kind=kind;$('#citation-title').textContent=kind==='schema'?(lang==='en'?'Configuration schema':'配置结构'):(lang==='en'?'A release in preparation.':'一个准备中的版本。');
   $('#citation-dialog').querySelector(':scope>p').textContent=kind==='schema'?(lang==='en'?'Select and copy this schema. It contains no dataset examples.':'可选择并复制以下结构，不含数据集样本。'):(lang==='en'?'No published dataset citation or DOI exists yet. This is provisional project metadata.':'目前没有正式数据集引用或 DOI，以下为临时项目信息。');
