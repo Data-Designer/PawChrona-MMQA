@@ -45,3 +45,11 @@ The main statistics follow five content categories, each paired with an owner-su
 Background photograph: “Cat and Dog Cuddling”, SeanT313, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [source page](https://commons.wikimedia.org/wiki/File:Cat_and_Dog_Cuddling.jpg). The file is copied without alterations and displayed with responsive cropping; it is an illustrative scene, not a dataset sample or emotional-state annotation. Credit is visible in the footer. / 背景照片仅为场景配图，不是数据集样本或情绪标注。保留原图，响应式裁切展示，署名位于页脚。
 
 Source material rights remain separate from authored annotations and this website. See [LICENSE](LICENSE). / 源素材、自编标注和网站代码的权利分别管理，参见许可说明。
+
+
+## Authors and citation / 作者与引用
+
+Author and project rights attribution / 作者与项目权属署名：**PawChrona Team**.
+
+Use [CITATION.cff](CITATION.cff) or [citation.bib](citation.bib) to cite the dataset. / 请使用上述引用文件引用数据集。
+

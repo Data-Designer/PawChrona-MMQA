@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this version when referring to this dataset. / 引用本数据集时请注明版本。"
+type: dataset
+title: "PawChrona-MMQA: Bilingual Companion-Animal Multimodal Question Answering"
+version: "2026.10.28-debug.2"
+authors:
+  - name: "PawChrona Team"
+url: "https://huggingface.co/datasets/PawChrona/PawChrona-MMQA"
+abstract: >-
+  English-Chinese multimodal question answering for companion-animal health and behavior.
+  Research preview with image, audio, video and text configurations.
+  面向宠物健康与行为的中英双语多模态问答科研预览版，涵盖图像、音频、视频及文本。
+keywords:
+  - PawChrona
+  - veterinary
+  - cats
+  - dogs
+  - multimodal-question-answering
+
