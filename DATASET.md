@@ -51,6 +51,6 @@ All records remain unreviewed research candidates. The new `dev` partition is an
 
 ## Provenance and rights / 出处与权利
 
-Source links, original licence declarations, derivations and attribution are retained in the private working corpus. Those declarations do not resolve every asset's redistribution rights. The rights holder, creators and original-component licences are not finalized. No exclusive ownership of the reused corpus or completed IP registration is claimed. / 工作语料保留来源、原许可声明、加工和署名记录；这些声明不自动解决逐素材再分发权利。权利人、作者及自有组件许可未定稿，不主张复用语料的独占权或已完成知识产权登记。
+The project citation credits PawChrona Team. Source links, original licence declarations, derivations and attribution are retained in the private working corpus. Those declarations do not resolve every asset's redistribution rights. The rights holder and original-component licences are not finalized. No exclusive ownership of the reused corpus or completed IP registration is claimed. / 项目引用署名为 PawChrona Team。工作语料保留来源、原许可声明、加工和署名记录；这些声明不自动解决逐素材再分发权利。权利人及自有组件许可未定稿，不主张复用语料的独占权或已完成知识产权登记。
 
 Website code licensing does not relicense datasets, authored annotations or third-party material. / 网站代码许可不授予数据集、自编标注或第三方素材的新许可。
