@@ -1,6 +1,6 @@
 # PawChrona-MMQA homepage / 数据集主页
 
-Static, bilingual research homepage, hosted by GitHub Pages. The repository contains website code, aggregate dataset facts, owner-supplied abbreviated QA examples, dataset-specific graphics and a separately credited illustrative photograph. No raw research dataset, model, media shard, token or private path is uploaded. / GitHub Pages静态双语研究主页，包含网站代码、汇总、负责人提供的简略问答、数据集专用图形与独立署名的场景照片，不含原始研究数据、模型、分片、密钥或私有路径。
+Static, bilingual research homepage, hosted by GitHub Pages. The repository contains website code, aggregate dataset facts, owner-supplied abbreviated QA examples, five explicitly selected development-set contact-sheet previews, dataset-specific graphics and a separately credited illustrative photograph. It does not distribute the full research dataset, individual original-media payloads, model, media shards, tokens or machine-local paths. / GitHub Pages静态双语研究主页，包含网站代码、汇总、负责人提供的简略问答、五张明确选定的开发集联系图、数据集专用图形与独立署名的场景照片；不分发完整研究数据集、单独的原始媒体载荷、模型、媒体分片、密钥或本机路径。
 
 - Homepage: https://data-designer.github.io/PawChrona-MMQA/
 - Dataset: https://huggingface.co/datasets/PawChrona/PawChrona-MMQA (manual-gated candidate / 需人工审批的候选)
@@ -27,6 +27,14 @@ Deploy the `main` branch root using GitHub Pages. `.nojekyll` keeps the site bui
 ## Verification / 验证
 
 `node scripts/verify.mjs` checks aggregate sums, relative assets, release gates and public-file exclusions. Browser interaction/layout QA is a separate DEBUG RUN, not a clinical or model evaluation. / 校验汇总求和、相对资源、发布状态与公开文件边界；浏览器交互测试不属于临床或模型实验。
+
+## Development contact sheets / 开发集联系图
+
+The 28 October development partition (`2026.10.28-debug.2`) contains 2,500 parent questions: 500 in each of the same five content categories. It is a subset of the original 49,247, not an additional 2,500 images or an approved final test set. The full-pool statistics remain unchanged. / 10月28日开发集包含2,500道父题，五类各500题；它是原49,247题的子集，不是新增2,500张图片，也不是获批的最终测试集，全池统计不变。
+
+The gallery supports category selection, full-view and original-size zoom, keyboard navigation and a mobile selector. The five JPGs are byte-identical copies of selected source contact sheets, with dimensions, counts and SHA-256 recorded in `assets/dataset-dev-preview.json`. Audio/video/text tiles retain their source placeholders; they are not broken images. Some categories include medical imagery. / 展区支持分类切换、放大与原尺寸查看、键盘操作及手机端选择器。五张JPG保留源联系图原始字节，尺寸、题量与哈希记录在清单中；音频、视频和文本格子保留源占位标记，不是图片缺失，部分分类包含医学图像。
+
+To refresh from an explicitly selected local source directory and its aggregate report, run `node scripts/sync-dev-contact-sheets.mjs <contact-sheet-directory> <diversity-report.json>`. The script copies only the five named JPGs, never a whole research folder. Then synchronize `release-data.js`, bilingual copy and documentation, and run the verifier. / 刷新脚本只复制五张指定JPG，不递归上传研究目录；更新后同步快照、双语文案与文档，并运行校验。网页展示不改变兽医、临床、隐私或训练放行状态。
 
 ## Dataset presentation and rights / 数据集展示与权利
 

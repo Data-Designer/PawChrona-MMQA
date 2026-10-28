@@ -1,0 +1,63 @@
+{
+  "version": "2026.10.28-debug.2",
+  "questions": 2500,
+  "perCategory": 500,
+  "selection": "development split; not a final test split",
+  "mediaKinds": {
+    "image": 1894,
+    "text": 189,
+    "audio": 333,
+    "video": 84
+  },
+  "rendering": "Original byte-identical contact sheets; audio/video/text placeholders retained",
+  "sourceReport": "dev_diversity_report.json",
+  "sourceRepository": "https://huggingface.co/datasets/PawChrona/PawChrona-MMQA",
+  "clinicalApprovalChanged": false,
+  "files": [
+    {
+      "category": "image_interpretation",
+      "file": "dataset-dev-image_interpretation.jpg",
+      "questions": 500,
+      "width": 2200,
+      "height": 1910,
+      "bytes": 1132402,
+      "sha256": "f96e17e49edbf67342e3b33dee080b1013c99348b17df11ff658e7ae4c2e940f"
+    },
+    {
+      "category": "disease_and_veterinary_knowledge",
+      "file": "dataset-dev-disease_and_veterinary_knowledge.jpg",
+      "questions": 500,
+      "width": 2200,
+      "height": 1910,
+      "bytes": 983789,
+      "sha256": "6d772381b7323d0b7510c4dce2cedda3bafab0f192956b76a46627796aba58b6"
+    },
+    {
+      "category": "pet_health_consultation",
+      "file": "dataset-dev-pet_health_consultation.jpg",
+      "questions": 500,
+      "width": 2200,
+      "height": 1910,
+      "bytes": 1025127,
+      "sha256": "676d23fc2a591658f2b01a9fe749fba8f4b799a9214b17f8b5e308cc7a0ef524"
+    },
+    {
+      "category": "behavior_and_expression",
+      "file": "dataset-dev-behavior_and_expression.jpg",
+      "questions": 500,
+      "width": 2200,
+      "height": 1910,
+      "bytes": 546911,
+      "sha256": "9f557e2cb6bdbe443310ae666eeee08a5569dffbda562f8a4934af3725de3c05"
+    },
+    {
+      "category": "imaging_basics_and_quality",
+      "file": "dataset-dev-imaging_basics_and_quality.jpg",
+      "questions": 500,
+      "width": 2200,
+      "height": 1910,
+      "bytes": 1046477,
+      "sha256": "c78740c678159551da485350f2faa1d4d63f39cf0664a5adb3a6dda215dde418"
+    }
+  ]
+}

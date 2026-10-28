@@ -2,9 +2,27 @@ import {readFile,stat,readdir} from 'node:fs/promises';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
 const root=new URL('../',import.meta.url),html=await readFile(new URL('index.html',root),'utf8'),ctx={window:{}};
 vm.runInNewContext(await readFile(new URL('release-data.js',root),'utf8'),ctx);
 const data=ctx.window.PAWCHRONA_RELEASE;
+const development=ctx.window.PAWCHRONA_DEVELOPMENT;
+assert.equal(development.questions,2500);assert.equal(development.perCategory,500);
+assert.equal(development.categories.length,5);assert.equal(development.questions,development.categories.length*development.perCategory);
+assert.equal(Object.values(development.mediaKinds).reduce((a,b)=>a+b,0),development.questions);
+assert.equal(development.isFinalTest,false);assert.equal(development.clinicalApproved,false);
+const preview=JSON.parse(await readFile(new URL(development.previewManifest,root),'utf8'));
+assert.equal(preview.questions,development.questions);assert.equal(preview.version,development.version);
+assert.equal(preview.files.length,5);assert.equal(preview.clinicalApprovalChanged,false);
+assert.deepEqual(JSON.parse(JSON.stringify(preview.mediaKinds)),JSON.parse(JSON.stringify(development.mediaKinds)));
+for(const asset of preview.files){
+ assert(development.categories.includes(asset.category));assert.equal(asset.file,`dataset-dev-${asset.category}.jpg`);assert.equal(asset.questions,500);
+ assert.equal(asset.width,2200);assert.equal(asset.height,1910);
+ const bytes=await readFile(new URL(`assets/${asset.file}`,root));assert.equal(bytes.length,asset.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);
+}
+assert.equal(new Set(preview.files.map(asset=>asset.category)).size,5);
+assert.doesNotMatch(JSON.stringify(preview),/\/Volumes\/|\/Users\/|hf_[A-Za-z0-9]{20}/);
+assert.equal([...html.matchAll(/data-dev-category="([^"]+)"/g)].length,5);
 for(const key of ['configurations','categories','species','formats'])assert.equal(Object.values(data[key]).reduce((a,b)=>a+b,0),data.parentQuestions,key);
 assert.equal(data.hfUrl,'https://huggingface.co/datasets/PawChrona/PawChrona-MMQA');assert.equal(data.hfAccessStatus,'gated_manual');assert.equal(data.actualVeterinarianReviews,0);
 for(const key of ['publicUploadPerformed','clinicalApproved','privacyCleared','formalTrainingApproved','exportAllowed'])assert.equal(data[key],false,key);
@@ -32,4 +50,4 @@ for(const [,attr,value]of html.matchAll(/\b(src|href)="([^"]+)"/g)){
 }
 for(const name of await readdir(root)){if(name.startsWith('.')||['assets','scripts','qa'].includes(name))continue;assert(!/\.(parquet|zip|jsonl|mp4|wav|npy|pdf)$/i.test(name),`private research payload ${name}`);}
 assert(!/\/Volumes\/|\/Users\/|hf_[A-Za-z0-9]{20}/.test(html+JSON.stringify(data)));
-console.log(JSON.stringify({mode:'DEBUG RUN',checks:['configuration/category/species/format sums','source gates preserved','unique DOM IDs','local assets and anchors','GitHub subpath compatibility','no root dataset payloads or private paths','no App prototype markup or assets','standalone dataset text and visual assets','dataset-only outbound links'],parents:data.parentQuestions,publicRelease:false,root:fileURLToPath(root),allPassed:true},null,2));
+console.log(JSON.stringify({mode:'DEBUG RUN',checks:['configuration/category/species/format sums','source gates preserved','unique DOM IDs','local assets and anchors','GitHub subpath compatibility','no root dataset payloads or private paths','no App prototype markup or assets','standalone dataset text and visual assets','dataset-only outbound links','five development contact sheets with matching SHA256 and counts','development preview not an added 2500 questions or a final test set'],parents:data.parentQuestions,developmentPreview:development.questions,publicRelease:false,root:fileURLToPath(root),allPassed:true},null,2));

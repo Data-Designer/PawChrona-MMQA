@@ -14,3 +14,10 @@ window.PAWCHRONA_RELEASE = Object.freeze({
   sourceReceipts:['hf_publication_20261027_metadata_complete.json','vqa_release_20261026.json'],
   note:'Counts describe the local candidate, not approved public-release size or validated model performance.'
 });
+window.PAWCHRONA_DEVELOPMENT = Object.freeze({
+  version:'2026.10.28-debug.2',date:'2026-10-28',questions:2500,perCategory:500,
+  categories:['image_interpretation','disease_and_veterinary_knowledge','pet_health_consultation','behavior_and_expression','imaging_basics_and_quality'],
+  mediaKinds:{image:1894,audio:333,video:84,text:189},
+  isFinalTest:false,clinicalApproved:false,
+  previewManifest:'assets/dataset-dev-preview.json'
+});

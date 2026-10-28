@@ -7,6 +7,7 @@ const text={
   text_qa:{en:['Text-only QA','Text-based veterinary knowledge and reference questions, without a linked media payload.'],zh:['纯文本问答','不关联媒体载荷的兽医知识与参考问题。'],media:[]}
 };
 let lang='en',config='image_vqa',visualPaused=false,toastTimer=null,lastDialogOpener=null;
+let devCategory='image_interpretation',devZoom=false,devOpener=null;
 try{lang=new URL(location.href).searchParams.get('lang')||localStorage.getItem('mmqa-language')||'en';}catch{}
 if(!['en','zh'].includes(lang))lang='en';
 const $=selector=>document.querySelector(selector),all=selector=>[...document.querySelectorAll(selector)];
@@ -31,7 +32,7 @@ function setLanguage(next){
   $('#navigation').setAttribute('aria-label',lang==='en'?'Main navigation':'主导航');
   $('#citation-close').setAttribute('aria-label',lang==='en'?'Close dialog':'关闭弹窗');
   $('#species').setAttribute('aria-label',lang==='en'?'Species filter snippet':'物种筛选表达式');
-  $('#copy-status').textContent='';renderExplorer();renderVisualControl();
+  $('#copy-status').textContent='';renderExplorer();renderVisualControl();renderDevelopment();
   try{localStorage.setItem('mmqa-language',lang);}catch{}
 }
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
@@ -50,6 +51,51 @@ const calm=matchMedia('(prefers-reduced-motion: reduce)'),smallScreen=matchMedia
 function syncVisual(){
   $('.study-photo').classList.toggle('is-paused',visualPaused||document.hidden||calm.matches||smallScreen.matches);
 }
+function devAsset(category){return `assets/dataset-dev-${category}.jpg`;}
+function devLabel(category){return $(`#dev-tab-${category} strong`).dataset[lang];}
+function renderDevelopment(){
+  const label=devLabel(devCategory),asset=devAsset(devCategory);
+  all('[data-dev-category]').forEach(button=>{const selected=button.dataset.devCategory===devCategory;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;});
+  $('#dev-category').value=devCategory;
+  $('#dev-sheet-panel').setAttribute('aria-labelledby',`dev-tab-${devCategory}`);
+  $('#dev-sheet-name').textContent=label;
+  $('#dev-topics').setAttribute('aria-label',lang==='zh'?'开发集分类':'Development-set topics');
+  $('#dev-image').alt=lang==='zh'?`${label}：500 道开发题的联系图`:`${label}: contact sheet of 500 development questions`;
+  if($('#dev-image').getAttribute('src')!==asset){$('#dev-image-error').hidden=true;$('#dev-image').classList.remove('dev-arrive');$('#dev-image').src=asset;}
+  for(const id of ['#dev-open','#dev-image-open'])$(id).href=asset;
+  $('#dev-image-open').setAttribute('aria-label',lang==='zh'?`放大查看${label}联系图`:`Enlarge the ${label} contact sheet`);
+  $('#dev-dialog-title').textContent=label;
+  $('#dev-dialog-image').alt=$('#dev-image').alt;
+  $('#dev-close').setAttribute('aria-label',lang==='zh'?'关闭联系图':'Close contact-sheet viewer');
+  $('#dev-viewport').setAttribute('aria-label',lang==='zh'?'联系图，可滚动查看':'Contact sheet, scroll to explore');
+  $('#dev-zoom').textContent=devZoom?(lang==='zh'?'适应窗口':'Fit view'):(lang==='zh'?'原始尺寸':'Original size');
+  $('#dev-zoom').setAttribute('aria-pressed',String(devZoom));
+}
+function selectDevelopment(category){
+  if(!window.PAWCHRONA_DEVELOPMENT.categories.includes(category))return;
+  devCategory=category;renderDevelopment();
+}
+function openDevelopment(event){
+  if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+  event.preventDefault();devOpener=event.currentTarget;devZoom=false;
+  $('#dev-viewport').classList.remove('is-original');renderDevelopment();
+  $('#dev-dialog-image').src=devAsset(devCategory);
+  $('#dev-dialog').showModal();$('#dev-viewport').scrollTo(0,0);$('#dev-close').focus();
+}
+all('[data-dev-category]').forEach(button=>button.addEventListener('click',()=>selectDevelopment(button.dataset.devCategory)));
+$('#dev-topics').addEventListener('keydown',event=>{
+  const buttons=all('[data-dev-category]'),current=buttons.indexOf(event.target);if(current<0)return;let next;
+  if(event.key==='ArrowDown')next=(current+1)%buttons.length;if(event.key==='ArrowUp')next=(current+buttons.length-1)%buttons.length;if(event.key==='Home')next=0;if(event.key==='End')next=buttons.length-1;
+  if(next===undefined)return;event.preventDefault();selectDevelopment(buttons[next].dataset.devCategory);buttons[next].focus();
+});
+$('#dev-category').addEventListener('change',event=>selectDevelopment(event.target.value));
+$('#dev-open').addEventListener('click',openDevelopment);$('#dev-image-open').addEventListener('click',openDevelopment);
+$('#dev-zoom').addEventListener('click',()=>{devZoom=!devZoom;$('#dev-viewport').classList.toggle('is-original',devZoom);$('#dev-viewport').scrollTo(0,0);renderDevelopment();});
+$('#dev-close').addEventListener('click',()=>$('#dev-dialog').close());
+$('#dev-dialog').addEventListener('close',()=>{devZoom=false;$('#dev-viewport').classList.remove('is-original');renderDevelopment();devOpener?.focus({preventScroll:true});});
+$('#dev-dialog').addEventListener('click',event=>{if(event.target!==event.currentTarget)return;const r=event.currentTarget.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)event.currentTarget.close();});
+$('#dev-image').addEventListener('load',()=>{$('#dev-image-error').hidden=true;$('#dev-image').classList.add('dev-arrive');});
+$('#dev-image').addEventListener('error',()=>{$('#dev-image-error').hidden=false;});
 $('#language').addEventListener('click',()=>setLanguage(lang==='en'?'zh':'en'));
 all('[data-config]').forEach(button=>button.addEventListener('click',()=>{config=button.dataset.config;renderExplorer();}));
 $('.explorer-tabs').addEventListener('keydown',event=>{
