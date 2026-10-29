@@ -30,7 +30,7 @@ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Se
 assert.doesNotMatch(html,/product-gallery|product-context|assets\/app-/,'App prototype screens must not appear on the dataset homepage');
 assert((await readdir(new URL('assets/',root))).every(name=>!/^app-.*\.(png|jpe?g|webp)$/i.test(name)),'App screen assets must not ship');
 const publicTexts=await Promise.all(['index.html','site.js','styles.css','README.md','DATASET.md','LICENSE','release-data.js'].map(name=>readFile(new URL(name,root),'utf8')));
-assert.doesNotMatch(publicTexts.join('\n'),/chatgpt\.site|CAT CORE|CAT GO|PAWCHRONA DOG|hero-pawchrona|hardware-concept|product-system|pawchrona-logo|产品官网|与产品的关系/i,'Standalone dataset presentation only');
+assert.doesNotMatch(publicTexts.join('\n'),/CAT CORE|CAT GO|PAWCHRONA DOG|hero-pawchrona|hardware-concept|product-system|pawchrona-logo|产品官网|与产品的关系/i,'Standalone dataset presentation only');
 const assets=(await readdir(new URL('assets/',root))).filter(name=>!name.startsWith('.'));
 assert(assets.every(name=>name.startsWith('dataset-')),'Only dataset-specific visual assets may ship');
 const rows=[...html.matchAll(/<tr data-category="([^"]+)" data-count="(\d+)"/g)];
@@ -42,7 +42,7 @@ assert.doesNotMatch(html,/currently private|私有仓库|私有、未审核/,'Cu
 assert.match(html,/class="study-scene"/,'Pet-scene background retained');
 assert.match(html,/class="technical-details"/,'Technical configuration is secondary');
 for(const [,url]of html.matchAll(/(?:href|src|content)="(https:\/\/[^"]+)"/g)){
- assert(['https://huggingface.co/datasets/PawChrona/PawChrona-MMQA','https://data-designer.github.io/PawChrona-MMQA/','https://commons.wikimedia.org/wiki/File:Cat_and_Dog_Cuddling.jpg','https://creativecommons.org/licenses/by-sa/4.0/'].some(prefix=>url.startsWith(prefix)),'Only dataset and photo-attribution destinations');
+ assert(['https://huggingface.co/datasets/PawChrona/PawChrona-MMQA','https://data-designer.github.io/PawChrona-MMQA/','https://commons.wikimedia.org/wiki/File:Cat_and_Dog_Cuddling.jpg','https://creativecommons.org/licenses/by-sa/4.0/'].some(prefix=>url.startsWith(prefix))||url==='https://pawchrona-mmqa-preview-zwt.azureraven20.chatgpt.site/?lang=zh','Only dataset, leaderboard and photo-attribution destinations');
 }
 for(const [,attr,value]of html.matchAll(/\b(src|href)="([^"]+)"/g)){
  if(value.startsWith('#'))assert(ids.includes(value.slice(1)),`missing anchor ${value}`);

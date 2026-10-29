@@ -20,7 +20,7 @@ Open `http://127.0.0.1:4186/`. No installation or build is needed; asset paths a
 
 The linked HF repository page is public, while dataset access uses manual approval (`gated: manual`), verified through its metadata API on 27 October 2026. Keep repository visibility, research-release readiness and clinical approval separate. Do not change review flags based on packaging or website checks. / 2026年10月27日通过HF元数据API核实：仓库页面可公开查看，数据访问需人工审批；仓库可见性、研究发布条件与临床放行分别管理，网页检查不提升审核状态。
 
-Visitor dataset actions point to Hugging Face, not the GitHub source repository. The GitHub Pages canonical address remains the homepage hosting location. / 访客的数据集入口均指向HF，不提供GitHub源码仓库入口；GitHub Pages规范地址仍作为本站托管地址保留。
+Visitor dataset actions point to Hugging Face, not the GitHub source repository. The navigation and footer also link to the external evaluation leaderboard at https://pawchrona-mmqa-preview-zwt.azureraven20.chatgpt.site/?lang=zh. The GitHub Pages canonical address remains the homepage hosting location. / 访客的数据集入口均指向HF，不提供GitHub源码仓库入口；顶部导航和页脚提供外部评测榜单入口；GitHub Pages规范地址仍作为本站托管地址保留。
 
 Deploy the `main` branch root using GitHub Pages. `.nojekyll` keeps the site buildless. / GitHub Pages部署main分支根目录；`.nojekyll`免构建。
 
