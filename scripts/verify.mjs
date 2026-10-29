@@ -42,7 +42,7 @@ assert.doesNotMatch(html,/currently private|私有仓库|私有、未审核/,'Cu
 assert.match(html,/class="study-scene"/,'Pet-scene background retained');
 assert.match(html,/class="technical-details"/,'Technical configuration is secondary');
 for(const [,url]of html.matchAll(/(?:href|src|content)="(https:\/\/[^"]+)"/g)){
- assert(['https://huggingface.co/datasets/PawChrona/PawChrona-MMQA','https://data-designer.github.io/PawChrona-MMQA/','https://commons.wikimedia.org/wiki/File:Cat_and_Dog_Cuddling.jpg','https://creativecommons.org/licenses/by-sa/4.0/'].some(prefix=>url.startsWith(prefix))||url==='https://pawchrona-mmqa-preview-zwt.azureraven20.chatgpt.site/?lang=zh','Only dataset, leaderboard and photo-attribution destinations');
+ assert(['https://huggingface.co/datasets/PawChrona/PawChrona-MMQA','https://data-designer.github.io/PawChrona-MMQA/','https://commons.wikimedia.org/wiki/File:Cat_and_Dog_Cuddling.jpg','https://creativecommons.org/licenses/by-sa/4.0/'].some(prefix=>url.startsWith(prefix))||url==='https://pawchrona-team.azureraven20.chatgpt.site/?lang=zh','Only dataset, leaderboard and photo-attribution destinations');
 }
 for(const [,attr,value]of html.matchAll(/\b(src|href)="([^"]+)"/g)){
  if(value.startsWith('#'))assert(ids.includes(value.slice(1)),`missing anchor ${value}`);

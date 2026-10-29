@@ -21,7 +21,7 @@ try{
  check('full-pool-still-49247',await page.locator('.task-table tbody tr').evaluateAll(rows=>rows.reduce((sum,row)=>sum+Number(row.dataset.count),0))===49247);
  check('non-image-placeholders-explained',await page.locator('.dev-footnote').innerText().then(t=>t.includes('audio')&&t.includes('占位')));
  check('background-retained',await page.locator('.study-photo img').count()===1);
- check('no-product-or-github-actions',await page.locator('a[href*="github.com"],.product-gallery').count()===0&&await page.locator('a[href*="chatgpt.site"]').evaluateAll(links=>links.every(link=>link.href==='https://pawchrona-mmqa-preview-zwt.azureraven20.chatgpt.site/?lang=zh')));
+ check('no-product-or-github-actions',await page.locator('a[href*="github.com"],.product-gallery').count()===0&&await page.locator('a[href*="chatgpt.site"]').evaluateAll(links=>links.every(link=>link.href==='https://pawchrona-team.azureraven20.chatgpt.site/?lang=zh')));
  const categories=await page.locator('[data-dev-category]').evaluateAll(buttons=>buttons.map(button=>button.dataset.devCategory));
  for(const category of categories){
   await page.locator(`#dev-tab-${category}`).click();await loaded('#dev-image');
